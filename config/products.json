@@ -1,0 +1,7 @@
+[
+  { "id": "p1", "name": "Smartwatch A", "price": 2490, "benefits": ["৭ দিন ব্যাটারি", "ওয়ারেন্টি ৬ মাস"], "category": "smartwatch" },
+  { "id": "p2", "name": "Bluetooth Earbuds B", "price": 1790, "benefits": ["নয়েজ ক্যান্সেলেশন", "ফাস্ট চার্জ"], "category": "audio" },
+  { "id": "p3", "name": "Android Phone C", "price": 11990, "benefits": ["৬৪জিবি স্টোরেজ", "১ বছর ওয়ারেন্টি"], "category": "phone" }
+]
+
+

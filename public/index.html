@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>বিক্রয় সহায়ক চ্যাটবট</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1 aria-label="চ্যাটবট শিরোনাম">বিক্রয় সহায়ক</h1>
+    <div class="controls">
+      <button id="themeToggle" aria-label="থিম পরিবর্তন">🌓</button>
+    </div>
+  </header>
+  <main class="chat" role="main">
+    <ul id="messages" role="list" aria-live="polite" aria-relevant="additions"></ul>
+    <div id="typing" class="typing" aria-live="polite" hidden>
+      <span class="typing-bubble">
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+      </span>
+    </div>
+  </main>
+  <footer class="composer">
+    <div class="suggestions" role="group" aria-label="দ্রুত প্রশ্ন">
+      <button class="chip" data-text="দাম">দাম</button>
+      <button class="chip" data-text="ডেলিভারি?">ডেলিভারি?</button>
+      <button class="chip" data-text="অর্ডার করুন">অর্ডার করুন</button>
+    </div>
+    <form id="form" autocomplete="off">
+      <button id="uploadBtn" type="button" aria-label="ছবি আপলোড">🖼️</button>
+      <input id="fileInput" type="file" accept="image/*" hidden>
+      <input id="input" type="text" placeholder="এখানে লিখুন…" aria-label="বার্তা লিখুন" required>
+      <button id="send" type="submit">পাঠান</button>
+    </form>
+    <div class="notice">এই সাইটে আপনার ডেটা শুধুমাত্র অর্ডারের জন্য ব্যবহৃত হবে। প্রয়োজনে ডিলিট করতে বলুন।</div>
+  </footer>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+  
+</html>
+
+
