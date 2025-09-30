@@ -241,7 +241,7 @@ async function callOpenAIWithTools({ userText, history = [], onToolStart, getCus
   const res = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${OPENAI_API_KEY}` },
-    body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.4, messages, tools, tool_choice: 'auto', max_tokens: 180 }),
+    body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.4, messages, tools, tool_choice: 'auto', max_tokens: 350 }),
     signal: controller.signal
   });
   clearTimeout(timeout);
@@ -287,7 +287,7 @@ async function callOpenAIWithTools({ userText, history = [], onToolStart, getCus
       const res2 = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${OPENAI_API_KEY}` },
-        body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.4, messages: [...messages, msg, toolMessage], max_tokens: 220 })
+        body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.4, messages: [...messages, msg, toolMessage], max_tokens: 380 })
       });
       if (!res2.ok) throw new Error(`LLM_HTTP_${res2.status}`);
       const data2 = await res2.json();
@@ -303,7 +303,7 @@ async function callOpenAIWithTools({ userText, history = [], onToolStart, getCus
       const toolMessage = { role: 'tool', tool_call_id: call.id, content: JSON.stringify({ ok: true, categories: cats }) };
       const res2 = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${OPENAI_API_KEY}` },
-        body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.4, messages: [...messages, msg, toolMessage], max_tokens: 200 })
+        body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.4, messages: [...messages, msg, toolMessage], max_tokens: 360 })
       });
       if (!res2.ok) throw new Error(`LLM_HTTP_${res2.status}`);
       const data2 = await res2.json();
@@ -326,7 +326,7 @@ async function callOpenAIWithTools({ userText, history = [], onToolStart, getCus
       const res2 = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${OPENAI_API_KEY}` },
-        body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.4, messages: [...messages, msg, toolMessage], max_tokens: 220 })
+        body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.4, messages: [...messages, msg, toolMessage], max_tokens: 380 })
       });
       if (!res2.ok) throw new Error(`LLM_HTTP_${res2.status}`);
       const data2 = await res2.json();
@@ -343,7 +343,7 @@ async function callOpenAIWithTools({ userText, history = [], onToolStart, getCus
       const toolMessage = { role: 'tool', tool_call_id: call.id, content: JSON.stringify({ ok: true, variations }) };
       const res2 = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${OPENAI_API_KEY}` },
-        body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.4, messages: [...messages, msg, toolMessage], max_tokens: 220 })
+        body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.4, messages: [...messages, msg, toolMessage], max_tokens: 380 })
       });
       if (!res2.ok) throw new Error(`LLM_HTTP_${res2.status}`);
       const data2 = await res2.json();
@@ -355,7 +355,7 @@ async function callOpenAIWithTools({ userText, history = [], onToolStart, getCus
       const toolMessage = { role: 'tool', tool_call_id: call.id, content: JSON.stringify({ ok: true, offer }) };
       const res2 = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${OPENAI_API_KEY}` },
-        body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.4, messages: [...messages, msg, toolMessage], max_tokens: 200 })
+        body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.4, messages: [...messages, msg, toolMessage], max_tokens: 360 })
       });
       if (!res2.ok) throw new Error(`LLM_HTTP_${res2.status}`);
       const data2 = await res2.json();
@@ -370,7 +370,7 @@ async function callOpenAIWithTools({ userText, history = [], onToolStart, getCus
       const toolMessage = { role: 'tool', tool_call_id: call.id, content: JSON.stringify({ ok: true, eta }) };
       const res2 = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${OPENAI_API_KEY}` },
-        body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.4, messages: [...messages, msg, toolMessage], max_tokens: 200 })
+        body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.4, messages: [...messages, msg, toolMessage], max_tokens: 360 })
       });
       if (!res2.ok) throw new Error(`LLM_HTTP_${res2.status}`);
       const data2 = await res2.json();
@@ -403,7 +403,7 @@ async function callOpenAIWithTools({ userText, history = [], onToolStart, getCus
       const toolMessage = { role: 'tool', tool_call_id: call.id, content: JSON.stringify({ ok: !!placed && !errMsg, placed, error: errMsg }) };
       const res2 = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${OPENAI_API_KEY}` },
-        body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.4, messages: [...messages, msg, toolMessage], max_tokens: 240 })
+        body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.4, messages: [...messages, msg, toolMessage], max_tokens: 400 })
       });
       if (!res2.ok) throw new Error(`LLM_HTTP_${res2.status}`);
       const data2 = await res2.json();
@@ -436,7 +436,7 @@ async function callOpenAIWithTools({ userText, history = [], onToolStart, getCus
       const toolMessage = { role: 'tool', tool_call_id: call.id, content: JSON.stringify({ ok: !!cancelled && !errMsg, cancelled, error: errMsg }) };
       const res2 = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${OPENAI_API_KEY}` },
-        body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.4, messages: [...messages, msg, toolMessage], max_tokens: 240 })
+        body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.4, messages: [...messages, msg, toolMessage], max_tokens: 400 })
       });
       if (!res2.ok) throw new Error(`LLM_HTTP_${res2.status}`);
       const data2 = await res2.json();
@@ -444,7 +444,23 @@ async function callOpenAIWithTools({ userText, history = [], onToolStart, getCus
       return { reply: finalReply, usedTool: true, toolName: 'cancel_order', cancelled };
     }
   }
-  return { reply: msg?.content?.trim() || '', usedTool: false };
+  let final = (msg && msg.content ? String(msg.content).trim() : '') || '';
+  // If reply looks truncated (e.g., ends mid-sentence), request a short continuation
+  if (final && /([,、؛]|\bএবং\s*|\band\s*)$/.test(final)) {
+    try {
+      const continuePrompt = { role: 'user', content: 'অনুগ্রহ করে আগের উত্তরের বাকি অংশ সংক্ষেপে শেষ করুন।' };
+      const res3 = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${OPENAI_API_KEY}` },
+        body: JSON.stringify({ model: OPENAI_MODEL, temperature: 0.3, messages: [...messages, msg, continuePrompt], max_tokens: 120 })
+      });
+      if (res3.ok) {
+        const data3 = await res3.json();
+        const tail = data3.choices?.[0]?.message?.content?.trim() || '';
+        if (tail) final = (final + ' ' + tail).trim();
+      }
+    } catch (_) {}
+  }
+  return { reply: final, usedTool: false };
 }
 
 const app = express();

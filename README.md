@@ -1,6 +1,6 @@
-### MyChatbot — AI Customer Support and Sales Assistant for WooCommerce
+### MyChatbot — WooCommerce‑এর জন্য এআই কাস্টমার সাপোর্ট ও সেলস সহায়ক
 
-An AI‑powered, human‑like Bangla-first chatbot for WooCommerce stores. Supports real-time chat (Socket.IO), image understanding, product search via WooCommerce REST API, secure order placement/cancellation, and persistent context using SQLite. Also includes a Facebook Messenger webhook and a Zapier webhook for AI replies.
+এটি একটি এআই‑চালিত, বাংলা‑প্রথম, মানবসদৃশ চ্যাটবট। রিয়েল‑টাইম চ্যাট (Socket.IO), ইমেজ বোঝা, WooCommerce REST API দিয়ে পণ্য অনুসন্ধান, নিরাপদ অর্ডার প্লেস/ক্যানসেল, এবং SQLite‑এ কনটেক্সট পার্সিস্টেন্স—সব একসাথে। Facebook Messenger ও Zapier‑এর জন্য পৃথক webhook অন্তর্ভুক্ত।
 
 ### Features
 - **Bangla-first conversational AI** using GPT‑4o with tool-calling
@@ -14,15 +14,15 @@ An AI‑powered, human‑like Bangla-first chatbot for WooCommerce stores. Suppo
 - **Production hardening**: rate limiting, retries, error handling, logging, CORS, and env validation
 - **UI**: simple web client with chat bubbles, quick replies, image upload, and a light/dark theme toggle [[memory:6981981]]
 
-### Demo (Local)
-1) Start the server
+### Demo (লোকালি)
+1) সার্ভার চালু করুন
 ```bash
 npm install
 npm run dev
 ```
-2) Open the app: `http://localhost:3000`
+2) অ্যাপ খুলুন: `http://localhost:3000`
 
-### Key Endpoints
+### কী কী এন্ডপয়েন্ট
 - Static site: `GET /` (serves `public/`)
 - Health: `GET /healthz`
 - WooCommerce products (backend proxy): `GET /api/products?search=watch&per_page=12`
@@ -195,7 +195,3 @@ Scripts
 Notes
 - Toggle LLM by setting `USE_LLM=true` and `OPENAI_API_KEY`.
 - Default origin is `http://localhost:3000`.
-
-# chatbot-for-wp-product-bangla
-# chatbot-for-wp-product-bangla
-# chatbot-for-wp-product-bangla
